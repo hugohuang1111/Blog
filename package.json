@@ -8,7 +8,8 @@
     "private": true,
     "scripts": {
         "dev": "vuepress dev blog",
-        "build": "vuepress build blog"
+        "build": "vuepress build blog",
+        "release": "yarn run build && cp -r ./blog/.vuepress/dist /var/www/html/"
     },
     "devDependencies": {
         "@vuepress/theme-blog": "^2.2.0",
