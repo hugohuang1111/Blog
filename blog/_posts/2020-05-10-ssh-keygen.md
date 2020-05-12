@@ -18,3 +18,5 @@ ssh-keygen 可以生成 ssh key.
 -t 密钥类型
 -C 备注(备注最后会在公钥内容的结尾处)
 
+---
+转自: [D34](http://www.d34.xyz/)

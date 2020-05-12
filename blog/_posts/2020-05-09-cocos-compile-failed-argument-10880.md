@@ -25,3 +25,6 @@ btVector3.h 中
 ```cpp
 #define BT_SHUFFLE(x,y,z,w) (((w)<<6 | (z)<<4 | (y)<<2 | (x)) & 0xff)
 ```
+
+---
+转自: [D34](http://www.d34.xyz/)

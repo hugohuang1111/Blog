@@ -16,3 +16,5 @@ tags:
 
 3. 应该在AndroidStudio中就可以看到对应的模拟器了
 
+---
+转自: [D34](http://www.d34.xyz/)
