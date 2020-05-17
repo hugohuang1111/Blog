@@ -11,7 +11,12 @@ module.exports = {
                 var s = document.getElementsByTagName("script")[0]; 
                 s.parentNode.insertBefore(hm, s);
             })();
-        `]
+        `],
+        ['script', {
+            async: 'async',
+            "data-ad-client": "ca-pub-5506230384423010",
+            src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        }, ``]
     ],
     theme: '@vuepress/theme-blog',
     themeConfig: {
