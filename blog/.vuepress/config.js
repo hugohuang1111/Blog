@@ -52,5 +52,8 @@ module.exports = {
                 }
             ]
         }
+    },
+    alias: {
+        "@assets": path.resolve(__dirname, "../assets")
     }
 }
