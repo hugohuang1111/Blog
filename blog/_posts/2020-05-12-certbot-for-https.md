@@ -27,9 +27,9 @@ tags:
 ```bash
 IMPORTANT NOTES:
  - Congratulations! Your certificate and chain have been saved at:
-   /etc/letsencrypt/live/d34.xyz/fullchain.pem
+   /etc/letsencrypt/live/hugohuang.xyz/fullchain.pem
    Your key file has been saved at:
-   /etc/letsencrypt/live/d34.xyz/privkey.pem
+   /etc/letsencrypt/live/hugohuang.xyz/privkey.pem
    Your cert will expire on 2020-08-10. To obtain a new or tweaked
    version of this certificate in the future, simply run certbot again
    with the "certonly" option. To non-interactively renew *all* of
@@ -42,4 +42,4 @@ IMPORTANT NOTES:
 
 
 ---
-转自: [D34](http://www.d34.xyz/)
+转自: [HH](http://www.hugohuang.xyz/)

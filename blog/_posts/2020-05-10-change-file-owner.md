@@ -32,4 +32,4 @@ chgrp -R another_group file_or_folder
 其中 -R 是递归把 file_or_folder 下所有文件都修改, 只修改这一个文件，可能不要 -R
 
 ---
-转自: [D34](http://www.d34.xyz/)
+转自: [HH](http://www.hugohuang.xyz/)

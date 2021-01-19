@@ -27,4 +27,4 @@ btVector3.h 中
 ```
 
 ---
-转自: [D34](http://www.d34.xyz/)
+转自: [HH](http://www.hugohuang.xyz/)

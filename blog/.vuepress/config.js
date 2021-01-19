@@ -1,6 +1,6 @@
 const path = require("path");
 module.exports = {
-    title: 'D34',
+    title: 'HH',
     description: "hugo's blog",
     head: [
         ['script', {}, `
@@ -21,7 +21,7 @@ module.exports = {
     theme: '@vuepress/theme-blog',
     themeConfig: {
         sitemap: {
-            hostname: "https://d34.xyz/"
+            hostname: "https://hugohuang.xyz/"
         },
         dateFormat: 'YYYY-MM-DD',
         smoothScroll: true,

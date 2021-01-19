@@ -29,4 +29,4 @@ Android 上对 jar 可以放在 maven 仓库, 但是我的插件会有 C++ 部�
 
 
 ---
-转自: [D34](http://www.d34.xyz/)
+转自: [HH](http://www.hugohuang.xyz/)

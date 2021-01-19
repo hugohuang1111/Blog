@@ -19,4 +19,4 @@ ssh-keygen 可以生成 ssh key.
 -C 备注(备注最后会在公钥内容的结尾处)
 
 ---
-转自: [D34](http://www.d34.xyz/)
+转自: [HH](http://www.hugohuang.xyz/)

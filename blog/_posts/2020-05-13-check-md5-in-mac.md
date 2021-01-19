@@ -26,4 +26,4 @@ openssl dgst -sha256 path/to/file
 ```
 
 ---
-转自: [D34](http://www.d34.xyz/)
+转自: [HH](http://www.hugohuang.xyz/)

@@ -60,4 +60,4 @@ __注意__: 本文中的本仓库地址为 https://gitee.com/htl/wxLottery
 
 
 ---
-转自: [D34](http://www.d34.xyz/)
+转自: [HH](http://www.hugohuang.xyz/)

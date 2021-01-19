@@ -44,4 +44,4 @@ cocospod install 完装完成，记得把上面这个 .curlrc 中的 insecure �
 2. 如果第一种方法还不行, 那就上&梯&子&吧
 
 ---
-转自: [D34](http://www.d34.xyz/)
+转自: [HH](http://www.hugohuang.xyz/)

@@ -142,4 +142,4 @@ java 中的 `nativeInit` 和 `nativeSend` 函数在 `native-lib.cpp` 中必须�
 
 
 ---
-转自: [D34](http://www.d34.xyz/)
+转自: [HH](http://www.hugohuang.xyz/)
