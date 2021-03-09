@@ -1,0 +1,24 @@
+
+name: deploy
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+
+      - name: install depedencies
+        run: npm install
+
+      - name: build doc
+        run: npm run docs:build
+
+      - name: deploy to gh-pages
+        env:
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: tools/deploy.sh
+
