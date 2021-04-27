@@ -7,7 +7,7 @@ module.exports = {
             var _hmt = _hmt || [];
             (function() {
                 var hm = document.createElement("script");
-                hm.src = "https://hm.baidu.com/hm.js?73b3ee336eca944dde6626b6cd8fece8";
+                hm.src = "https://hm.baidu.com/hm.js?cffb1df3a4b288bdd0a77e64400c7861";
                 var s = document.getElementsByTagName("script")[0]; 
                 s.parentNode.insertBefore(hm, s);
             })();
