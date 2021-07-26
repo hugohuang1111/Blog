@@ -3,7 +3,7 @@ title: 如何避免游戏被破解
 date: 2021-07-20
 author: hugo
 tags:
-    creator, encrypt
+    creator, crack
 ---
 
 ## 前言
