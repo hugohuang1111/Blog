@@ -19,7 +19,7 @@ tags:
 
 
 ```txt
-192.168.1.0/24,.cn,toutiao.com,ke.com,tmall.com,jd.com,qq.com,aliyun.com,alicdn.com
+192.168.1.0/24,.cn,163.com,alicdn.com,aliyun.com,bilibili.com,bilivideo.com,jd.com,ke.com,qq.com,tmall.com,toutiao.com
 ```
 
 
