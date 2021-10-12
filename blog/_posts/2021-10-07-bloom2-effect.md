@@ -1,5 +1,5 @@
 ---
-title: bloom 辉光特效
+title: bloom2 辉光特效
 date: 2021-10-07
 author: hugo
 tags:
