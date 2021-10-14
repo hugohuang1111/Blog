@@ -3,7 +3,7 @@ title: bloom 辉光特效
 date: 2021-08-28
 author: hugo
 tags:
-    shader, bloom, effect
+    effect
 ---
 
 ## 简介

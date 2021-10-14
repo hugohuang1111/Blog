@@ -3,7 +3,7 @@ title: 雨滴特效
 date: 2021-09-28
 author: hugo
 tags:
-    shader, rain, effect
+    effect
 ---
 
 ## 简介

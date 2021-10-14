@@ -3,7 +3,7 @@ title: 内发光, 外发光特效
 date: 2021-08-09
 author: hugo
 tags:
-    shader
+    effect
 ---
 
 ## 简介
