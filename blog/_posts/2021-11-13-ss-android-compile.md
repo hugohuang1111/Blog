@@ -23,7 +23,8 @@ tags:
 在命令行中运行 `rustup --version` , 应该能得到如下的提示
 
 ```bash
-hugo$ rustup --version
+rustup --version
+
 rustup 1.24.3 (ce5817a94 2021-05-31)
 info: This is the version for the rustup toolchain manager, not the rustc compiler.
 info: The currently active `rustc` version is `rustc 1.54.0-nightly (dbe459ded 2021-06-02)`
@@ -47,7 +48,7 @@ RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
 
 ```yml
 [source.crates-io]
-replace-with = 'sjtu'
+replace-with = 'ustc'
 
 # 中国科学技术大学
 [source.ustc]
