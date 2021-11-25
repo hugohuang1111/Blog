@@ -60,7 +60,7 @@ decalVertex.uv = new Vec2(
 
 ## 仓库
 
-https://github.com/hugohuang1111/fxcase/tree/master/assets/caseMultiTex
+https://github.com/hugohuang1111/fxcase/tree/master/assets/caseDecals/method2
 
 
 ---
