@@ -8,13 +8,15 @@ tags:
 
 ## 前言
 
-相信很多小灰伴已经看过江百的优化方案中提到的 multi-tex 方案. 这个方案的主要作用把因为纹理不同而打断合批这个很常见的因素去掉.
+相信很多小伙伴已经看过江南百景图(后文简称江百)发布的关于在使用 Cocos Creator 中所使用的优化方法了.
+在这些方法中, 大家肯定对其中江百提到的 Multi-Tex 方法印象深刻.
+这个方案的主要目的就是解决 Creator 中会因为纹理不同而打断合批的这种情况.
 
-我们都知道, 在 Cocos 中, 要降低 DrawCall , 就要让我们的 RendererComp 可以合批. 而合批是有各种条件限制的, 最主要的一个条件就是合批必须要使用同一个 texture . 但现实中往往我们的渲染结点使用的纹理可能会不一致.
+我们都知道, 在 `Cocos` 中, 要降低 `DrawCall` , 就要让我们的 `Renderable2D` 合批. 而合批是有各种条件限制的, 比如材质, layer, blend 状态等等. 而这其中最主要的一个条件就是能合批的 `Renderable2D` 必须使用的是同一个 texture . 但现实中我们的渲染结点被打断的原因往往就是纹理不一致.
 
-本次我们要按江百的 multi-tex 方案, 做一个对应的实现, 让 Cocos 支持多纹理的合批.
+本次我们会参考江百的 Multi-Tex 方案, 让 `Renderable2D` 支持多纹理合批.
 
-同时在实现 multi-tex 这个方案时, 我增加了一个限制, 在 CocosCreator 3.x 上, 同时不使用自定义引擎.
+同时在实现 Multi-Tex 这个方案时, 我增加了一个限制, 在 CocosCreator 3.x 上, 同时不使用自定义引擎.
 
 ## 效果
 
@@ -26,32 +28,38 @@ tags:
 
 ### 现有的合批流程
 
-```
-RendererComp -> commitComp -> Set Descriptor -> DrawBatch2D -> WebGL
-```
+![BatchFlow](@assets/202111/multitex_batch_flow.jpg)
 
 所有的 RendererComp 都会经过 commitComp 这一步, 在这里面判断能否和上一次的 RendererComp 合批.
 
-可以合批, 就合批, 不能就会打断当前合批.
+判断通过就合批, 没通过就提交并开启新的合批.
 
 ### 改动方案
 
-我们现在要增加多纹理支持, 那么就需要在 commitComp 支持多纹理的判断.
+整个改动的逻辑其实都是围绕着合批这一操作来展开的. 最关键的步骤, 我认为有如下三步:
 
-后面的 DrawBatch2D 的 Set Descriptor 也需要把多张纹理传进去.
+* 首先我们把 `commitComp` 中的单纹理判断改成多纹理判断
+* 然后在合批通过后, 我们还需要把对应的多张纹理传到 `Descriptor` 中
+* 最后当然还需要一个定制化的 `shader` 来接受传过来的多张纹理, 并在 `shader` 中选择当前的纹理去采样
 
-同时我们还需要定制化 Shader(也就是一个支持多纹理的Shader) . 在这个定制化的 Shader 中, 我们把当前使用的纹理索引值通过顶点属性的方式传到 Shader 中.
-
-在这里我们取了一个巧, 将纹理索引值放在顶点属性的颜色位. (后面再写一个如何在 Cocos 中增加顶点属性的文章?)
-
+关于如何在 `shader` 中得知, 当前应该选择哪张纹理, 在这个方案中, 我们取了一个巧, 将纹理索引值放在顶点属性的颜色位.
+(这就留下了一坑, 如何在 Cocos 中增加自定义顶点属性)
 
 ## 关键实现步骤
 
-因为有不使用自定义引擎这一限制, 同时我们对合批的处理, 又是引擎内部的实现.
+因为我们有不使用自定义引擎这一限制(不定制引擎, 以后可以直接升级), 但是合批相关的处理, 又是引擎内部的实现.
 
-因为这两个原因, 所以我们在实现步骤用到了一些私有的方法, 成员, 这样在升级引擎时, 需要关注到这一块.
+所以我在如下的实现步骤中会 hook 引擎私有变量, 函数, 也因为用到了**私有**变量,函数, 所以在升级引擎时, 需要特别关注这一块
+
+(但是我以为这也比直接去自定义引擎后, 再来升级来得快些).
 
 ### 多纹理合批判断
+
+改动后 `commitComp` 支持多纹理, 主要有两个地方需要注意:
+* 判断合批时的纹理判断改成了多纹理
+* 把当前的 Sprite 使用的纹理的索引值放在顶点属性的颜色位
+
+以下为改动后的源码:
 
 ```typescript
 public static commitComp(comp: Renderable2D, frame: SpriteFrame | null, assembler: any, transform: Node | null) {
@@ -92,7 +100,9 @@ public static commitComp(comp: Renderable2D, frame: SpriteFrame | null, assemble
 
 ### Descriptor 中传入多纹理
 
-当 DrawBatch2D 是多纹理的时候, 在 Descriptor 中传入对应的多张纹理.
+合批判断后, 还需要把这一批次中的多张纹理传到我们的自定义 `shader` 中.
+
+如下为把多纹理传入到 `Descriptor` 中的源码相关改动.
 
 ```typescript
 function(batch: any) {
@@ -121,10 +131,11 @@ function(batch: any) {
 
 ### 多纹理 Shader 实现
 
-我们的自定义 Shader 中, 在 Vertex Shader 部分与正常类似(类似的意思, 就是可以直接用 Coocos 中内置的 Sprite-default.effect 中的代码)
+我们的自定义 Shader 中
 
-在 fragment shader 中, 就需要把用到的所有纹理声明一遍了. 然后根据当前顶点对应的纹理索引值, 使用相应的纹理来采样.
+* `Vertex Shader`: 与正常类似(类似的意思, 就是可以直接用 Coocos 中内置的 Sprite-default.effect 中的代码)
 
+* `Fragment Shader`: 大体也是与正常类似, 不同的地方就是, 需要添加纹理相关的了, 比如用到的所有纹理声明. 然后根据当前顶点颜色属性对应的纹理索引值, 使用相应的纹理来采样.
 
 ```glsl
 CCProgram sprite-fs %{
@@ -157,9 +168,10 @@ CCProgram sprite-fs %{
     #if USE_TEXTURE
       float texID = color.x * 255.;
 
-        // 这后面一段, 都是在做一件事. 根据纹理索引值 textID ,来采样对应的纹理.
-        // 为什么不用 if 判断?  只能说习惯吧.
-        // 但是这里完全是可以用下面这一种方式的.
+        // 这里提供了两种方法, 两种方法都在做同一件事, 根据纹理索引值 textID ,来采样对应的纹理.
+        // 按你的风格, 喜欢哪个选哪个.
+
+        // way 1
         /*
         if (texID == 0.0) {
             o = texture(cc_spriteTexture, uv0);
@@ -179,22 +191,24 @@ CCProgram sprite-fs %{
             o = texture(spriteTexture7, uv0);
         }
         */
-      o = vec4(0., 0., 0., 0.);
-      o += getCalVal(texID) * CCSampleWithAlphaSeparated(cc_spriteTexture,  uv0);
-      texID -= 1.;
-      o += getCalVal(texID) * CCSampleWithAlphaSeparated(spriteTexture1, uv0);
-      texID -= 1.;
-      o += getCalVal(texID) * CCSampleWithAlphaSeparated(spriteTexture2, uv0);
-      texID -= 1.;
-      o += getCalVal(texID) * CCSampleWithAlphaSeparated(spriteTexture3, uv0);
-      texID -= 1.;
-      o += getCalVal(texID) * CCSampleWithAlphaSeparated(spriteTexture4, uv0);
-      texID -= 1.;
-      o += getCalVal(texID) * CCSampleWithAlphaSeparated(spriteTexture5, uv0);
-      texID -= 1.;
-      o += getCalVal(texID) * CCSampleWithAlphaSeparated(spriteTexture6, uv0);
-      texID -= 1.;
-      o += getCalVal(texID) * CCSampleWithAlphaSeparated(spriteTexture7, uv0);
+
+        // way 2
+        o = vec4(0., 0., 0., 0.);
+        o += getCalVal(texID) * CCSampleWithAlphaSeparated(cc_spriteTexture,  uv0);
+        texID -= 1.;
+        o += getCalVal(texID) * CCSampleWithAlphaSeparated(spriteTexture1, uv0);
+        texID -= 1.;
+        o += getCalVal(texID) * CCSampleWithAlphaSeparated(spriteTexture2, uv0);
+        texID -= 1.;
+        o += getCalVal(texID) * CCSampleWithAlphaSeparated(spriteTexture3, uv0);
+        texID -= 1.;
+        o += getCalVal(texID) * CCSampleWithAlphaSeparated(spriteTexture4, uv0);
+        texID -= 1.;
+        o += getCalVal(texID) * CCSampleWithAlphaSeparated(spriteTexture5, uv0);
+        texID -= 1.;
+        o += getCalVal(texID) * CCSampleWithAlphaSeparated(spriteTexture6, uv0);
+        texID -= 1.;
+        o += getCalVal(texID) * CCSampleWithAlphaSeparated(spriteTexture7, uv0);
 
     #endif
 
@@ -204,24 +218,30 @@ CCProgram sprite-fs %{
 }%
 ```
 
+到这里, 我们的这个 `Multi-Tex` 的整体实现流程与关键点都讲完了.
+
 ## Multi-Tex 插件使用
 
-当我们想在自己的工程中尝试 Multi-Tex 时, 可以这样来.
+我在实现这个 `Multi-Tex` 这个方案时, 就再想不是可以做到尽量可复用.
 
-* 先介绍一下 Multi-Tex 这个插件的内容:
-    1. MTBatcher2D.ts   // 对现在引擎中的 Batch2D 的 hack 实现, 不需要直接调用
+如下介绍一下, `Multi-Tex` 的整体框架与使用.
+
+* Multi-Tex 主要有以下几个文件:
+    1. MTBatcher2D.ts   // 对现在引擎中的 Batch2D 的 hook 实现, 不需要直接调用
     2. MTSprite.ts      // 对于要支持 Multi-Tex 的 Sprite 需要添加这个 Component
     3. MTTex.ts         // 需要全局唯一, 可以挂在 main Camera 上
-    4. multitex.effect  // 支持多纹理的 Shader
+    4. multitex.effect  // 支持多纹理的 Effect
     5. multitex.mtl     // 支持多纹理的 Material, 应该赋值到 MTTex 上.
 
-* 现在介绍一下使用的步骤
+* 使用步骤:
     1. 将 MTTex 挂在 main Camera 上
     2. 将 multitex.mtl 赋值给 MTTex 的属性上
     3. 将 MTSprite 挂在需要支持 Multi-Tex 的 Sprite 上
     4. Done, 看一下 DrawCall.
 
 ## 仓库
+
+详细实现与 Demo 可以查看这里
 
 https://github.com/hugohuang1111/fxcase/tree/master/assets/caseMultiTex
 
