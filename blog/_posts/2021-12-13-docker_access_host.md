@@ -1,5 +1,5 @@
 ---
-title: 在 Docker 的 Container 里访问 Host
+title: 在 Docker 的容器(Container)里访问主机(Host)上 mysql
 date: 2021-12-13
 author: hugo
 tags:
@@ -55,6 +55,8 @@ ifconfig docker0
 
 至此, 再以正常的路径布署你的 Docker 程序就可以了.
 
+
+## 总结
 
 对于 Ubuntu/Linux 上访问主机(Host) 上的 mysql 总结如下:
 * 让 mysql 监听 `0.0.0.0` , 这样所有 ip 都可以访问
