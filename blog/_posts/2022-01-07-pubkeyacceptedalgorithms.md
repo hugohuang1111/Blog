@@ -23,7 +23,7 @@ HostkeyAlgorithms +ssh-rsa
 PubkeyAcceptedAlgorithms +ssh-rsa
 ```
 
-这个方法对于对我没有效果, 反而还会出现上面那个错误 `Bad configuration option: pubkeyacceptedalgorithms`.
+这个方法对于我却没有效果, 反而还会出现上面那个错误 `Bad configuration option: pubkeyacceptedalgorithms`.
 
 ## 解决
 
