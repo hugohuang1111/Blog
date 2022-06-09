@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>排序算法 | HH</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?cffb1df3a4b288bdd0a77e64400c7861";
+                var s = document.getElementsByTagName("script")[0]; 
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    <script async="async" data-ad-client="ca-pub-5506230384423010" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="
+
+早上刷新闻时看到了排序算法, 今天就来说说我所知道用到的一些排序算法.
+
+排序算法
+
+冒泡
+
+最经典的排序算法了, 它最思想就是相邻的两个数对比, 并保证, 他们的顺序是按目标顺序排列的.
+
+例子, 我们要从小到大. 过程如下:
+1 4 5 3 2  // 原始队列
+1 4 5 3 2  // 1 与 4 不同交换
+1 4 5 3 2  // 4 与 5 也不同交换
+1 ...">
+    
+    <link rel="preload" href="/Blog/assets/css/0.styles.a670f1bf.css" as="style"><link rel="preload" href="/Blog/assets/js/app.a565a2cc.js" as="script"><link rel="preload" href="/Blog/assets/js/6.33b353e6.js" as="script"><link rel="preload" href="/Blog/assets/js/3.5eb0541e.js" as="script"><link rel="preload" href="/Blog/assets/js/51.f1f233b8.js" as="script"><link rel="prefetch" href="/Blog/assets/js/10.91899829.js"><link rel="prefetch" href="/Blog/assets/js/11.ec6b9c3f.js"><link rel="prefetch" href="/Blog/assets/js/12.463ff100.js"><link rel="prefetch" href="/Blog/assets/js/13.d6f0059c.js"><link rel="prefetch" href="/Blog/assets/js/14.e550cddb.js"><link rel="prefetch" href="/Blog/assets/js/15.056e9d04.js"><link rel="prefetch" href="/Blog/assets/js/16.51243e4d.js"><link rel="prefetch" href="/Blog/assets/js/17.43253610.js"><link rel="prefetch" href="/Blog/assets/js/18.6c0f3753.js"><link rel="prefetch" href="/Blog/assets/js/19.743ea51c.js"><link rel="prefetch" href="/Blog/assets/js/20.112c76d0.js"><link rel="prefetch" href="/Blog/assets/js/21.afb046c1.js"><link rel="prefetch" href="/Blog/assets/js/22.d1b83928.js"><link rel="prefetch" href="/Blog/assets/js/23.bcd3d397.js"><link rel="prefetch" href="/Blog/assets/js/24.58a72974.js"><link rel="prefetch" href="/Blog/assets/js/25.42318877.js"><link rel="prefetch" href="/Blog/assets/js/26.2358c492.js"><link rel="prefetch" href="/Blog/assets/js/27.04a89e35.js"><link rel="prefetch" href="/Blog/assets/js/28.c3b8fe45.js"><link rel="prefetch" href="/Blog/assets/js/29.a6639cd5.js"><link rel="prefetch" href="/Blog/assets/js/30.aa2ee64a.js"><link rel="prefetch" href="/Blog/assets/js/31.26aeb7f4.js"><link rel="prefetch" href="/Blog/assets/js/32.44f7c65f.js"><link rel="prefetch" href="/Blog/assets/js/33.aa46bacf.js"><link rel="prefetch" href="/Blog/assets/js/34.e3c3cd63.js"><link rel="prefetch" href="/Blog/assets/js/35.b6c6f045.js"><link rel="prefetch" href="/Blog/assets/js/36.de07b2a8.js"><link rel="prefetch" href="/Blog/assets/js/37.5e61596d.js"><link rel="prefetch" href="/Blog/assets/js/38.b89c2d7b.js"><link rel="prefetch" href="/Blog/assets/js/39.6db1f0c0.js"><link rel="prefetch" href="/Blog/assets/js/4.b0f8f67c.js"><link rel="prefetch" href="/Blog/assets/js/40.4ae48fd4.js"><link rel="prefetch" href="/Blog/assets/js/41.69857a2b.js"><link rel="prefetch" href="/Blog/assets/js/42.a3ea9319.js"><link rel="prefetch" href="/Blog/assets/js/43.b3f35ab8.js"><link rel="prefetch" href="/Blog/assets/js/44.18ca1a1d.js"><link rel="prefetch" href="/Blog/assets/js/45.e563c0dc.js"><link rel="prefetch" href="/Blog/assets/js/46.b28a72f2.js"><link rel="prefetch" href="/Blog/assets/js/47.6cc21585.js"><link rel="prefetch" href="/Blog/assets/js/48.c9bf6a7d.js"><link rel="prefetch" href="/Blog/assets/js/49.4933e595.js"><link rel="prefetch" href="/Blog/assets/js/5.3445d259.js"><link rel="prefetch" href="/Blog/assets/js/50.25fe3e8c.js"><link rel="prefetch" href="/Blog/assets/js/52.8f36bdfd.js"><link rel="prefetch" href="/Blog/assets/js/53.97997c8e.js"><link rel="prefetch" href="/Blog/assets/js/54.4fe3ea35.js"><link rel="prefetch" href="/Blog/assets/js/55.4b5bef6a.js"><link rel="prefetch" href="/Blog/assets/js/56.03ea6cd9.js"><link rel="prefetch" href="/Blog/assets/js/57.b5f59866.js"><link rel="prefetch" href="/Blog/assets/js/58.acd51142.js"><link rel="prefetch" href="/Blog/assets/js/59.87f47c09.js"><link rel="prefetch" href="/Blog/assets/js/60.78ad86a4.js"><link rel="prefetch" href="/Blog/assets/js/61.51a385a6.js"><link rel="prefetch" href="/Blog/assets/js/7.eac934eb.js"><link rel="prefetch" href="/Blog/assets/js/8.cb17a3a1.js"><link rel="prefetch" href="/Blog/assets/js/9.9b56e49b.js"><link rel="prefetch" href="/Blog/assets/js/vuejs-paginate.7813a9ca.js">
+    <link rel="stylesheet" href="/Blog/assets/css/0.styles.a670f1bf.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/Blog/" class="nav-link home-link">HH </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/Blog/" class="nav-link">文章</a></li><li class="nav-item"><a href="/Blog/tag/" class="nav-link">标签</a></li><li class="nav-item"><a href="/Blog/about/" class="nav-link">关于</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/Blog/" class="nav-link mobile-home-link">HH </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/Blog/" class="nav-link">文章</a></li><li class="mobile-nav-item"><a href="/Blog/tag/" class="nav-link">标签</a></li><li class="mobile-nav-item"><a href="/Blog/about/" class="nav-link">关于</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        排序算法
+      </h1> <div class="post-meta"><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="post-meta-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">hugo</span> <!----></div> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2021-10-20T00:00:00.000Z">
+      2021-10-20
+    </time></div> <ul itemprop="keywords" class="post-meta-tags"><li class="post-tag" data-v-42ccfcd5><a href="/Blog/tag/design mode" data-v-42ccfcd5><span data-v-42ccfcd5>design mode</span></a></li></ul></div></header> <div itemprop="articleBody" class="content__default"><h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>早上刷新闻时看到了排序算法, 今天就来说说我所知道用到的一些排序算法.</p> <h2 id="排序算法"><a href="#排序算法" class="header-anchor">#</a> 排序算法</h2> <h3 id="冒泡"><a href="#冒泡" class="header-anchor">#</a> 冒泡</h3> <p>最经典的排序算法了, 它最思想就是相邻的两个数对比, 并保证, 他们的顺序是按目标顺序排列的.</p> <p>例子, 我们要从小到大. 过程如下:</p> <div class="language- extra-class"><pre class="language-text"><code>1 4 5 3 2  // 原始队列
+1 4 5 3 2  // 1 与 4 不同交换
+1 4 5 3 2  // 4 与 5 也不同交换
+1 4 3 5 2  // 5 与 3 需要交换
+1 4 3 2 5  // 5 与 2 需要交换
+// 到这里一轮结束, 同时可以注意到最时最大的 5 已经到最后的位置了, 下一轮在前 4 个数中再重复上面的步骤即可
+
+....
+</code></pre></div><p>说明: 冒泡一直在做的事就是让相邻的两个数满足目标的大小关系(左大于右, 还是右大于左).
+其实在每一轮的过程中, 就会有一个数找到它的位置.
+在数据的比较中, 要注意一个地方就是数据流动的方向, 如果是按最大的向右流动, 那么一轮之后, 这一轮最右的那个位置就不在下一轮的范围内了.
+同理, 如果是最大的向左流动, 那么这一轮最左的位置, 就不在下一轮的范围内了.</p> <h3 id="插入排序"><a href="#插入排序" class="header-anchor">#</a> 插入排序</h3> <p>插入排序的基本思想是, 先预想第一个数, 已经排好了, 然后把第二个数插入到第一个数的队列中. 同理再把第三个数插入到前面两个数组成的队列中, 依次类推.</p> <p>例子, 我们要从小到大. 过程如下:</p> <div class="language- extra-class"><pre class="language-text"><code>1 4 5 3 2  // 原始队列
+1 4 5 3 2  // 1 自己是一个队列
+1 4 5 3 2  // 把 4 加入到 1 中, 4 与 1 比较, 满足, 不用动
+1 4 5 3 2  // 把 5 与 1, 4 比较, 满足, 不用动
+1 3 4 5 2  // 把 3 与 1, 4, 5 比较, 3 应该在 4 前面, 插入
+1 2 3 4 5  // 把 2 与 1, 3, 4, 5 比较, 2 应该在 3 前面, 插入
+</code></pre></div><h3 id="快速排序"><a href="#快速排序" class="header-anchor">#</a> 快速排序</h3> <p>快速排序是我们接触得比较多的一种算法了, 总的思想就是先随机找一个数, 再以这个数为标, 把原来的数就可以分成两部分(大于标的数与不大于标的数), 然后再对这分出来的这两部分再做随机在其中选一个数, 再往下分, 如此下去, 当不可再分时, 排序也就完成了.</p> <p>快速排序, 最主要的思想就是分而治之
+快速排序, 会快, 其实最主要还是分而治之了, 这样小的那部分数就不用再和大的那部分数去比较, 好的情况下就少了一半的比较量. 当然差的情况下(每一次其中一部分的数量都是0, 这时的 标的数 就是最小,最大的时候), 其实和冒泡/插入也一样了, 基本就要和所有的数依次比较.</p> <p>例子, 我们要从小到大. 过程如下:</p> <div class="language- extra-class"><pre class="language-text"><code>1 4 5 3 2  // 以 1 为标的数, 把 1 与最右侧的 2 比较, 满足, 不动
+1 4 5 3 2  // 把 1 与最右侧的 3 比较, 满足, 不动
+1 4 5 3 2  // 把 1 与最右侧的 5 比较, 满足, 不动
+1 4 5 3 2  // 把 1 与最右侧的 4 比较, 满足, 不动
+1 3 4 5 2  // 这时就以 1 为中间点, 原先的数分成了两部分, 只是 1 正好是最小的值, 所以这里就遇到了最差的情况, 有一部分为0
+1 3 4 5 2  // 在这里就属于开始下一轮了, 比较 3, 4, 5, 2
+1 2 4 5 3  // 3 与 2 比较, 不满足, 交换
+1 2 3 5 4  // 3 与 4 比较, 不满足, 交换
+1 2 3 5 4  // 这里就以为 3 标, 分成了 2 与 5, 4 两部分, 然后同样的方式去排序 5, 4 这一部分, 2 这一部分就不用动了, 只有一个数嘛
+....
+</code></pre></div><h3 id="选择排序"><a href="#选择排序" class="header-anchor">#</a> 选择排序</h3> <p>这个和插入排序有点类, 不过它是每次在未排序的数中选一个最小(或最大的), 然后添加到已排序的后面就可以了</p> <p>插入排序是从未排序的数中随机选一个, 然后插入到前面已排序的数中, 它的排序比较过程是在已排序中进行的
+而选择的排序是在未排序的数中选出最小(或最大), 直接排在已排序后面就可以了, 它的比较过程是在未排序数中</p> <p>例子, 我们要从小到大. 过程如下:</p> <div class="language- extra-class"><pre class="language-text"><code>1 4 5 3 2  // 先选出最小的1, 并把它放在第1位
+1 2 4 5 3  // 在第二位往后, 选出 2, 并把它放在第 2 位
+1 2 3 4 5  // 在第三位往后中选出最小的 3 , 并把它放在已排好序队列后, 也就是第 3 位
+...
+1 2 3 4 5  // 同理可以把 4, 5 排好, 得到最终的已排好的队列
+</code></pre></div><h3 id="归并排序"><a href="#归并排序" class="header-anchor">#</a> 归并排序</h3> <p>这个方法, 我很少用, 它也有点像分而治之, 它会把整体数组从中间分成两部分, 然后递归在上一步的部分再分成两部分, 很明显, 这样操作之后, 整个数组就被分成了一颗树, 然后从树支开始, 相邻两个兄弟结点比较排序, 完成后, 就往上回溯为父结点, 这样回溯到最终结点, 整个数组的排序也就完成了.</p> <p>先把 1 4 5 3 2 做成这样一棵树</p> <div class="language- extra-class"><pre><code>  1 4 5    |    3   2
+    |             |
+|───────|     |───────|
+|       |     |       |
+</code></pre></div><p>1   4 |   5  |  3   |   2
+|
+|───────|
+1       4  5     3       2</p> <p>再把树回溯</p> <p>1       4  5     3       2
+|───────|
+|
+1   4 |   5  |  3   |   2
+|───────|
+|
+1  4   5  |   2  3
+|───────|
+|
+1 2 3 4 5</p> <p>所以这个算法, 其实是要先构建树, 然后再回溯, 回溯(收缩)时的比较, 只需要两个兄弟结点各自前面的两个数, 因为结点本身是已经排好序的了.</p> <h3 id="基数排序"><a href="#基数排序" class="header-anchor">#</a> 基数排序</h3> <p>基数排序这个挺有意思的, 总的来说, 就是先以个位数来排序, 然后再以十位数来排序, 依次往大的位数上来排.
+在排序的时候, 其实也很有意思, 不是用的我们传统上的两两比较, 而是分组, 按当前比较位数分对应的组就可以了.</p> <p>例子, 我们要从小到大. 过程如下:</p> <div class="language- extra-class"><pre class="language-text"><code>32 42 95 89 57 24
+32 42 24 95 57 89  // 按个位排序后
+24 32 42 57 89 95  // 按十位排序后
+// 这里就完成了排序, 这里面最大的数就是两位, 所以只需要排两轮.
+</code></pre></div><p>其实从上面的例子过程中可以看出来, 基数排序把以前的整数作比较, 变成了只比较对应位数上的值, 或者可以换个说法, 放十个桶(0 - 9) , 当比较对应位时, 就按位把数放进桶中, 放完再依次合到原数组中, 再按下一位再放进桶中, 所以其实数位的比较就放在了分组这一部分了.</p> <h3 id="希尔排序"><a href="#希尔排序" class="header-anchor">#</a> 希尔排序</h3> <p>要理解希尔排序, 其实就要了解到简单的冒泡排序, 在最差情况下(最小的数在最大的数的位置上), 那最小的数要回到自己的位置要跟所有的数依次比较, 每比一次, 前进一步. 希尔排序就想解决这个问题, 它是这样做的: 把所有的数按坐标以 step 为步进分组( step 第一次一般为数组 length/2 ), 然后就会有 length/2 个小组, 然后在每个小组里各自排序, 然后将 step 除 2, 这样就有 length/4 个小组. 在这些小组内再排序. 依次把 step 除2 , 直到 step 变为1, 整个数组是一个小组，排序也就完成了。</p> <p>例子, 我们要从小到大. 过程如下:</p> <div class="language- extra-class"><pre class="language-text"><code>32 42 95 89 57 24
+32 42 24 89 57 95  // step: 3 =&gt; 32, 89 | 42, 57 | 95, 24 为组
+24 32 42 57 89 95  // step: 1 =&gt; 整个组为一个小组
+</code></pre></div><p>希尔排序就是把大组分成小组来排, 然后再慢慢按step分成大组来排.</p> <h3 id="堆排序"><a href="#堆排序" class="header-anchor">#</a> 堆排序</h3> <p>堆排序这个一般用二叉树, 首先用当前的数组构建一个树, 然后从第一个非叶结点开始, 保证当前结点大于自己的两个子结点. 如果不满足, 就把大于当前结点的子结点与当前结点的数交换, 再依次往上走. 那么这样之后, 明显我们可以知道, 根结点肯定是最大的数, 然后把这个最大的数放在排好的序中最大的位置上. 再把树中最后位置的数放到根结点中. 再重复做刚才的事。从这个流程可知, 其实就是在用树来选最大的值, 这个就和选择排序有点像了, 只是我们在做选择排序的选择时， 是一个一个比较去选, 这里是通过树来选.</p> <hr> <p>转自: <a href="http://www.hugohuang.xyz/" target="_blank" rel="noopener noreferrer">HH<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#前言" title="前言">前言</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#排序算法" title="排序算法">排序算法</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#冒泡" title="冒泡">冒泡</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#插入排序" title="插入排序">插入排序</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#快速排序" title="快速排序">快速排序</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#选择排序" title="选择排序">选择排序</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#归并排序" title="归并排序">归并排序</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#基数排序" title="基数排序">基数排序</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#希尔排序" title="希尔排序">希尔排序</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#堆排序" title="堆排序">堆排序</a></div></div></div></div> <footer class="footer" data-v-3d9deeb8><div class="footer-left-wrap" data-v-3d9deeb8><ul class="contact" data-v-3d9deeb8><li class="contact-item" data-v-3d9deeb8><a href="https://github.com/hugohuang1111" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-3d9deeb8><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-3d9deeb8></path></svg>
+          
+        </a></li><li class="contact-item" data-v-3d9deeb8><a href="mailto:hugohuang1111@gmail.com" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail" data-v-3d9deeb8><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" data-v-3d9deeb8></path><polyline points="22,6 12,13 2,6" data-v-3d9deeb8></polyline></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-3d9deeb8><ul class="copyright" data-v-3d9deeb8><li class="copyright-item" data-v-3d9deeb8>Copyright © 2020</li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/Blog/assets/js/app.a565a2cc.js" defer></script><script src="/Blog/assets/js/6.33b353e6.js" defer></script><script src="/Blog/assets/js/3.5eb0541e.js" defer></script><script src="/Blog/assets/js/51.f1f233b8.js" defer></script>
+  </body>
+</html>
