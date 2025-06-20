@@ -1,18 +1,24 @@
 {
     "name": "d34press",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "hugo's blog",
     "main": "index.js",
     "author": "hugo",
     "license": "None",
     "private": true,
+    "type": "module",
     "scripts": {
-        "dev": "vuepress dev blog",
-        "build": "vuepress build blog",
-        "release": "npm run build && cp -r ./blog/.vuepress/dist/* /var/www/html/"
+        "dev": "vuepress-vite dev blog",
+        "clean-dev": "vuepress-vite dev blog --clean-cache",
+        "build": "vuepress-vite build blog",
+        "release": "npm run build && cp -r ./blog/.vuepress/dist/* /var/www/html/",
+        "update-package": "npx vp-update"
     },
     "devDependencies": {
-        "@vuepress/theme-blog": "^2.2.0",
-        "vuepress": "^1.4.1"
+        "@vuepress/bundler-vite": "2.0.0-rc.23",
+        "sass-embedded": "^1.89.2",
+        "vue": "^3.5.17",
+        "vuepress": "2.0.0-rc.23",
+        "vuepress-theme-hope": "2.0.0-rc.93"
     }
 }

@@ -1,3 +1,9 @@
+---
+title: Privacy
+index: false
+icon: book
+---
+
 # Privacy Policy
 
 Privacy Policy
