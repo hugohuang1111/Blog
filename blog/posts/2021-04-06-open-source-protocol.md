@@ -42,7 +42,7 @@ tag:
 
 开源协议一张图
 
-![](@assets/202104/protocols.jpg)
+![](/assets/202104/protocols.jpg)
 
 参见引用: https://blog.csdn.net/testcs_dn/article/details/38496107
 

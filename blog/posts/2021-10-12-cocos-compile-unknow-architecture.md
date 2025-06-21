@@ -8,7 +8,7 @@ tag:
 
 今天使用 Xcode 12 编译 Coco2dx 3.17.2 lua 工程时, 遇到了如下错误:
 
-![UnknowSupportedArchitecture](@assets/202110/unknowSupportArch.jpg)
+![UnknowSupportedArchitecture](/assets/202110/unknowSupportArch.jpg)
 
 这个主要是因为 Xcode 12 编译方式有改变, 可以这样改
 

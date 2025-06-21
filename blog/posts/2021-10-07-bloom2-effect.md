@@ -14,7 +14,7 @@ tag:
 
 先上效果图
 
-![Bloom](@assets/202110/bloom2.png)
+![Bloom](/assets/202110/bloom2.png)
 
 bloom 的实现就不说了, 上篇文章说过了, 这次说下这个后处理框架吧.
 整个后处理的核心就是对渲染管线的调整.添加自定义的 stage . 我提供了一个 BaseStage ,自定义的 Stage 只需要继承它, 重写 init 就好了.

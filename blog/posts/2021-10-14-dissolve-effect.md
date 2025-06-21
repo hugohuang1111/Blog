@@ -14,15 +14,15 @@ tag:
 
 老规矩, 先上效果图
 
-![Dissolve](@assets/202110/dissolve1.gif)
+![Dissolve](/assets/202110/dissolve1.gif)
 
 另一种效果, 最后带点飞升的感觉
 
-![Dissolve](@assets/202110/dissolve2.gif)
+![Dissolve](/assets/202110/dissolve2.gif)
 
 这个最后扩展一点, 有点膨胀消失的感觉
 
-![Dissolve](@assets/202110/dissolve3.gif)
+![Dissolve](/assets/202110/dissolve3.gif)
 
 消融其实就是用一张 noise 的图, 然后以 noise 像素点的一个分量与消融阀值作比较, noise 小于阀值的, 那么对应的模型纹理就直接 discard ,随着消融阀值地不断提升, 模型就慢慢整个消失了.
 

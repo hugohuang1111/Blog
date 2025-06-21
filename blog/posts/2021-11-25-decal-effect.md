@@ -13,7 +13,7 @@ tag:
 
 ## 效果
 
-![Decal](@assets/202111/decal.gif)
+![Decal](/assets/202111/decal.gif)
 
 
 ## 思路

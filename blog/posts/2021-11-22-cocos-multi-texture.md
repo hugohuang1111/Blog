@@ -20,7 +20,7 @@ tag:
 
 ## 效果
 
-![MultiTex](@assets/202111/multitex.jpg)
+![MultiTex](/assets/202111/multitex.jpg)
 
 上图中, 笑脸, 绵羊, 信息图标是来自于三个不同的纹理. 但是可以看到他们的 DrawCall 为 2.
 
@@ -28,7 +28,7 @@ tag:
 
 ### 现有的合批流程
 
-![BatchFlow](@assets/202111/multitex_batch_flow.jpg)
+![BatchFlow](/assets/202111/multitex_batch_flow.jpg)
 
 所有的 RendererComp 都会经过 commitComp 这一步, 在这里面判断能否和上一次的 RendererComp 合批.
 

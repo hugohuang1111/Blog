@@ -14,7 +14,7 @@ tag:
 
 先看效果图吧
 
-![RainOnWindow](@assets/202109/rainOnWindow.gif)
+![RainOnWindow](/assets/202109/rainOnWindow.gif)
 
 这个其实是一种后期, 把 rain 的效果与当前帧相融合.
 rain 的效果实施, 可以把整个屏幕分格, 一个格子中一个雨滴, 让并让他从下往下滑落.

@@ -14,7 +14,7 @@ __注意__: 本文中的本仓库地址为 https://gitee.com/htl/wxLottery
 
 最近在微信小程序中实现如下这种抽奖效果.
 
-![](@assets/20200719/lottery_sample.gif)
+![](/assets/20200719/lottery_sample.gif)
 
 
 由这个效果来看, 可以分成三个部分

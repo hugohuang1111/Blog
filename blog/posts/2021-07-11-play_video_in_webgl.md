@@ -12,7 +12,7 @@ tag:
 
 话不多说, 先看效果, 在一个旋转的立方体上的播放视频.
 
-![VideoGL](@assets/202107/videogl.gif)
+![VideoGL](/assets/202107/videogl.gif)
 
 ## 前言
 
